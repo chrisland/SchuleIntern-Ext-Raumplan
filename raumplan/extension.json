@@ -1,7 +1,7 @@
 {
   "name": "Raumplan",
   "uniqid": "ext.zwiebelgasse.raumplan",
-  "version": "1",
+  "version": "3",
 
   "requiredVersion": "1.4.1",
 
@@ -13,6 +13,27 @@
 
   "adminGroupName": "Admin_Ext_Raumplan",
   "aclGroupName": "ext_raumplan",
+
+  "widgets": [
+    {
+      "title": "Meine Heute",
+      "uniqid": "raumplan.mytoday",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    },
+    {
+      "title": "Meine Nächsten",
+      "uniqid": "raumplan.mynext",
+      "position": "dashboard",
+      "params": {
+        "minH": 2,
+        "minW": 4
+      }
+    }
+  ],
 
 
   "submenu": [

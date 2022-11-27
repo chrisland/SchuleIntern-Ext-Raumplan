@@ -15,6 +15,8 @@ class extRaumplanDefault extends AbstractPage {
 	public function execute() {
 
         $_request = $this->getRequest();
+        $acl = $this->getAcl();
+
 
         //print_r($_request);
 		//$this->getAcl();
@@ -26,7 +28,12 @@ class extRaumplanDefault extends AbstractPage {
             $getRoom = json_decode($settingsRooms)[0];
         }
         if (!$getRoom) {
-            new errorPage("Leider wurde kein Raum gewählt!");
+
+            if ((int)DB::getSession()->getUser()->isAnyAdmin() === 1) {
+                header("Location: index.php?page=ext_raumplan&view=custom&admin=true");
+            } else {
+                new errorPage("Leider wurde kein Raum gewählt!");
+            }
         }
 
         //echo $getRoom;
